@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Sitemap: https://shadowrocket.best/sitemap.xml
+
+# 禁止抓取图片文件夹中的某些文件（可选）
+# Disallow: /images/
+
+# 允许搜索引擎抓取所有内容
+Allow: *.html
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
