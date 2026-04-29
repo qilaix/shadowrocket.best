@@ -551,6 +551,42 @@
             border: 1px solid var(--border-color, #e2e8f0);
         }
 
+        .account-inline-ad {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 190px;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+        }
+
+        .account-inline-ad h3 {
+            color: #1e293b;
+            font-size: 16px;
+            margin: 0 0 8px;
+        }
+
+        .account-inline-ad p {
+            color: #475569;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0 0 12px;
+        }
+
+        .account-inline-ad a {
+            background: #2563eb;
+            color: white;
+            border-radius: 6px;
+            padding: 9px 12px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
         /* 页脚 */
         footer {
             margin-left: 280px;
@@ -899,7 +935,7 @@
                 <!-- Lray广告 -->
                 <div class="ad-card" id="lray">
                     <h3>🚀 推荐：Lray机场 - 高速稳定节点 <span class="ad-tag">限时优惠</span></h3>
-                    <p style="color: #64748b; color: var(--text-secondary, #64748b); margin: 12px 0; font-size: 15px;"><strong>下载完Shadowrocket后需要节点才能使用！</strong>海外运营5年+老牌机场，IEPL专线遍布全球，完美支持小火箭，新用户永久流量仅需17.9元起！</p>
+                    <p style="color: #64748b; color: var(--text-secondary, #64748b); margin: 12px 0; font-size: 15px;"><strong>下载完Shadowrocket后需要节点才能使用！</strong>海外运营5年+老牌机场，IEPL专线遍布全球，完美支持小火箭，新用户低至5.5元/月！</p>
 
                     <div class="ad-features">
                         <div class="ad-feature">⚡ IEPL专线低延迟</div>
@@ -908,13 +944,13 @@
                         <div class="ad-feature">🎬 4K流媒体</div>
                         <div class="ad-feature">🌍 全球50+节点</div>
                         <div class="ad-feature">💬 7x24在线客服</div>
-                        <div class="ad-feature">💰 永久流量17.9元起</div>
+                        <div class="ad-feature">💰 低至5.5元/月</div>
                         <div class="ad-feature">🔒 稳定可靠</div>
                     </div>
 
                     <div style="background: white; padding: 16px; border-radius: 8px; margin: 16px 0; border: 2px dashed #3b82f6; border: 2px dashed var(--primary-color, #3b82f6);">
                         <p style="margin: 0; font-size: 14px; color: #1e293b; color: var(--text-primary, #1e293b);">
-                            <strong style="color: #3b82f6; color: var(--primary-color, #3b82f6);">🎁 新用户专属优惠：</strong>使用优惠码 <code style="background: #fef3c7; color: #ef4444; padding: 2px 8px; border-radius: 4px; font-weight: 700; border: 1px solid #fcd34d;">welcome</code> 立享新人9折优惠，<strong style="color: #ef4444;">永久流量，不限设备数</strong>！
+                            <strong style="color: #3b82f6; color: var(--primary-color, #3b82f6);">🎁 新用户专属优惠：</strong>使用优惠码 <code style="background: #fef3c7; color: #ef4444; padding: 2px 8px; border-radius: 4px; font-weight: 700; border: 1px solid #fcd34d;">50OFF</code> 立享新人5折优惠，<strong style="color: #ef4444;">永久流量，不限设备数</strong>！
                         </p>
                     </div>
 
@@ -1081,10 +1117,10 @@
                         <li>稳定可靠，7x24小时运营</li>
                         <li>完美解锁各类流媒体</li>
                         <li>专业客服支持</li>
-                        <li>价格实惠（永久流量仅需17.9元起）</li>
+                    <li>价格实惠（低至5.5元/月）</li>
                     </ul>
                     <p style="margin-top: 12px; text-align: center;">
-                        <a href="https://lray.io/#/register?code=AluJYp9M" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color, #3b82f6); font-weight: 600; text-decoration: underline;">→ 推荐：Lray机场 - 永久流量17.9元起，使用优惠码 welcome 享9折优惠</a>
+                        <a href="https://lray.io/#/register?code=AluJYp9M" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color, #3b82f6); font-weight: 600; text-decoration: underline;">→ 推荐：Lray机场 - 低至5.5元/月，使用优惠码 50OFF 享5折优惠</a>
                     </p>
                 </div>
             </div>
@@ -1324,15 +1360,26 @@
                 return;
             }
 
-            // 只显示前20个账号
-            const displayAccounts = accountsData.slice(0, 20);
+            const displayAccounts = accountsData;
 
-            container.innerHTML = displayAccounts.map((account, index) => `
+            const renderLrayAd = () => `
+                <div class="account-inline-ad">
+                    <div>
+                        <h3>🚀 需要稳定好用节点？</h3>
+                        <p><strong>Lray机场</strong> IEPL专线高速稳定，支持小火箭，解锁 ChatGPT / TikTok / 流媒体，新用户低至5.5元/月。</p>
+                        <p>优惠码 <code style="background:#fef3c7;color:#ef4444;padding:2px 6px;border-radius:4px;font-weight:700;">50OFF</code> 享 5 折。</p>
+                    </div>
+                    <a href="https://lray.io/#/register?code=AluJYp9M" target="_blank" rel="noopener noreferrer">领取 Lray 优惠 →</a>
+                </div>
+            `;
+
+            container.innerHTML = displayAccounts.map((account, index) => {
+                const accountCard = `
                 <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; transition: all 0.2s;"
                      onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'"
                      onmouseout="this.style.boxShadow='none'">
                     <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
-                        <span style="font-size: 12px; color: #64748b; font-weight: 600;">账号-${index + 1}</span>
+                        <span style="font-size: 12px; color: #64748b; font-weight: 600;">${escapeHtml(account.country || account.regionName || `账号-${index + 1}`)}</span>
                         <span style="background: ${account.status === '正常' ? '#10b981' : '#ef4444'}; color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">${account.status}</span>
                     </div>
 
@@ -1359,7 +1406,9 @@
                         </button>
                     </div>
                 </div>
-            `).join('');
+            `;
+                return (index === 0 || (index > 0 && index % 8 === 0)) ? renderLrayAd() + accountCard : accountCard;
+            }).join('');
         }
 
         // HTML转义
